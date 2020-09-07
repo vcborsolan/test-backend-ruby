@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_180138) do
   create_table "animals", force: :cascade do |t|
     t.string "name"
     t.float "mc"
-    t.integer "type"
+    t.integer "animal_type"
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
