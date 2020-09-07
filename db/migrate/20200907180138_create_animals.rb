@@ -3,7 +3,7 @@ class CreateAnimals < ActiveRecord::Migration[5.2]
     create_table :animals do |t|
       t.string :name
       t.float :mc
-      t.integer :type
+      t.integer :animal_type
       t.references :person, foreign_key: true
 
       t.timestamps
