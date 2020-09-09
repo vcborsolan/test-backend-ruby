@@ -9,28 +9,28 @@ Este projeto tem como finalidade , solucionar um teste tecnico para vaga de back
 
 ## Como instalar?
 
-    1. Clonar o projeto:
+1. Clonar o projeto:
 
-        ```bash
-            $ git clone  https://github.com/vcborsolan/test-backend-ruby.git
-        ```
+```bash
+$ git clone  https://github.com/vcborsolan/test-backend-ruby.git
+```
 
-    2. Criar o database(SQLite):
+2. Criar o database(SQLite):
 
-        ```ruby
-            $ rails db:create
-        ```
-    3. Migrar o banco:
+```ruby
+$ rails db:create
+```
+3. Migrar o banco:
 
-        ```ruby
-            $ rails db:migrate
-        ```
+```ruby
+$ rails db:migrate
+```
 
-    4. Seedar o banco:
+4. Seedar o banco:
 
-        ```ruby
-            $ rails db:seed
-        ```
+```ruby
+$ rails db:seed
+```
 
 ## Desafio
 
@@ -84,32 +84,32 @@ Crie um seed para popular o banco de dados de acordo com os dados abaixo:
 
 ## Respostas
 
-    - Qual é o custo médio dos animais do tipo cachorro?
+- Qual é o custo médio dos animais do tipo cachorro?
 
-    ```ruby
-        Animal.where(animal_type: 'cachorro').average(:mc).to_f
-    ```
+```ruby
+Animal.where(animal_type: 'cachorro').average(:mc).to_f
+```
 
-    - Quantos cachorros existem no sistema?
+- Quantos cachorros existem no sistema?
 
-    ```ruby
-        Animal.where(animal_type: 'cachorro').count()
-    ```
+```ruby
+Animal.where(animal_type: 'cachorro').count()
+```
 
-    - Qual o nome dos donos dos cachorros? (Array de nomes)
+- Qual o nome dos donos dos cachorros? (Array de nomes)
 
-    ```ruby
-        Animal.includes(:person).where(animal_type: 'cachorro').map {|animal| animal.person.name}
-    ```
+```ruby
+Animal.includes(:person).where(animal_type: 'cachorro').map {|animal| animal.person.name}
+```
 
-    - Retorne as pessoas ordenando pelo custo que elas tem com os animais (Maior para menor)
+- Retorne as pessoas ordenando pelo custo que elas tem com os animais (Maior para menor)
 
-    ```ruby
-        Person.includes(:animal).group('name').sum(:mc).sort_by {|k,v| -v}
-    ```
+```ruby
+Person.includes(:animal).group('name').sum(:mc).sort_by {|k,v| -v}
+```
     
-    - Levando em consideração o custo mensal, qual será o custo de 3 meses de cada pessoa?
+- Levando em consideração o custo mensal, qual será o custo de 3 meses de cada pessoa?
 
-    ```ruby
-        Person.includes(:animal).group('name').sum(:mc).map {|k,v| [k ,(v*3).round(2)]}
-    ```
+```ruby
+Person.includes(:animal).group('name').sum(:mc).map {|k,v| [k ,(v*3).round(2)]}
+```
